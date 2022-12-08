@@ -127,3 +127,12 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Data dirs and files
+data
+data/
+data/*
+
+# Model weight files
+*ckpt
+*pth
