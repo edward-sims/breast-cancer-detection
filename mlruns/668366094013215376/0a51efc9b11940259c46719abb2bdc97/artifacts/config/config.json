@@ -1,0 +1,82 @@
+{
+  "data": {
+    "data_dir": "data",
+    "train_csv": "train.csv",
+    "test_csv": "test.csv",
+    "image_size": [
+      224,
+      224
+    ],
+    "batch_size": 8,
+    "val_batch_size": 16,
+    "num_workers": 4,
+    "patient_level": true
+  },
+  "model": {
+    "backbone": "vit_base_patch16_224",
+    "pretrained": true,
+    "num_classes": 1,
+    "dropout": 0.1,
+    "attention_dropout": 0.1,
+    "stochastic_depth": 0.1,
+    "fusion_method": "attention",
+    "attention_heads": 8,
+    "hidden_dim": 768
+  },
+  "training": {
+    "epochs": 50,
+    "min_epochs": 10,
+    "max_epochs": 200,
+    "learning_rate": "1e-4",
+    "weight_decay": "1e-4",
+    "patience": 15,
+    "n_folds": 5,
+    "loss_type": "combined",
+    "focal_alpha": 0.25,
+    "focal_gamma": 2.0,
+    "pf1_weight": 0.3,
+    "scheduler": "cosine_with_warmup",
+    "warmup_epochs": 5,
+    "precision": 16,
+    "gradient_clip_val": 1.0
+  },
+  "preprocessing": {
+    "augmentations": [
+      "normalize",
+      "contrast_enhancement"
+    ],
+    "output_dir": "data/processed",
+    "rotation_limit": 15,
+    "shift_limit": 0.1,
+    "scale_limit": 0.1,
+    "brightness_limit": 0.2,
+    "contrast_limit": 0.2,
+    "p": 0.5
+  },
+  "evaluation": {
+    "metrics": [
+      "pf1",
+      "auc",
+      "precision",
+      "recall",
+      "f1"
+    ],
+    "calibration_bins": 10,
+    "uncertainty_analysis": true
+  },
+  "inference": {
+    "batch_size": 1,
+    "num_workers": 4,
+    "async_processing": false,
+    "performance_tracking": true
+  },
+  "logging": {
+    "log_level": "INFO",
+    "use_wandb": false,
+    "use_tensorboard": true,
+    "use_mlflow": true,
+    "experiment_name": "breast-cancer-detection",
+    "log_dir": "logs",
+    "mlflow_tracking_uri": "file:./mlruns"
+  }
+}

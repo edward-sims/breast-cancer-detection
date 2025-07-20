@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/edwardsimsps/Documents/personal/breast-cancer-detection/mlruns/668366094013215376/af2d8b029b0d4bb7bac35c84940dbb8d/artifacts
+end_time: 1752939279174
+entry_point_name: ''
+experiment_id: '668366094013215376'
+lifecycle_stage: active
+run_id: af2d8b029b0d4bb7bac35c84940dbb8d
+run_name: training-20250719-163433
+run_uuid: af2d8b029b0d4bb7bac35c84940dbb8d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1752939273407
+status: 3
+tags: []
+user_id: edwardsimsps
